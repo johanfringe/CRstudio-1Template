@@ -1,4 +1,16 @@
 var plugins = [{
+      name: 'gatsby-plugin-image',
+      plugin: require('/Users/johan/CRstudio/CRstudio-1Template/node_modules/gatsby-plugin-image/gatsby-ssr.js'),
+      options: {"plugins":[]},
+    },{
+      name: 'gatsby-plugin-manifest',
+      plugin: require('/Users/johan/CRstudio/CRstudio-1Template/node_modules/gatsby-plugin-manifest/gatsby-ssr.js'),
+      options: {"plugins":[],"name":"Catalogue Raisonné","short_name":"CR","start_url":"/","background_color":"#ffffff","theme_color":"#663399","display":"standalone","icon":"content/images/favicon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"b8479990f8c7fbd5769aa0a48f77adb3"},
+    },{
+      name: 'gatsby-plugin-sitemap',
+      plugin: require('/Users/johan/CRstudio/CRstudio-1Template/node_modules/gatsby-plugin-sitemap/gatsby-ssr.js'),
+      options: {"plugins":[],"output":"/sitemap.xml","createLinkInHead":true,"entryLimit":45000,"query":"{ site { siteMetadata { siteUrl } } allSitePage { nodes { path } } }","excludes":[]},
+    },{
       name: 'partytown',
       plugin: require('/Users/johan/CRstudio/CRstudio-1Template/node_modules/gatsby/dist/internal-plugins/partytown/gatsby-ssr.js'),
       options: {"plugins":[]},

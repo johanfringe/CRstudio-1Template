@@ -1,10 +1,17 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const IndexPage = () => (
-  <main>
-    <h1>Welcome to CRstudio</h1>
-    <p>Your Catalogue Raisonné tool</p>
-  </main>
+  <>
+    <Helmet>
+      <title>Welcome to CRstudio</title>
+      <meta name="description" content="The most powerful Catalogue Raisonné building tool." />
+    </Helmet>
+    <main>
+      <h1>Welcome to CRstudio</h1>
+      <p>Document and share your artistic legacy.</p>
+    </main>
+  </>
 );
 
 export default IndexPage;

@@ -1,1 +1,38 @@
-node_modules
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.* # Voor specifieke omgevingen zoals .env.production of .env.development
+content/config/.env
+
+# Gatsby files
+.cache/
+public/
+
+# Logs
+*.log
+
+# OS-specifieke bestanden
+.DS_Store
+Thumbs.db
+
+# Editor-specifieke bestanden
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Build outputs
+dist/
+
+# Dependency directories
+bower_components/
+
+# Miscellaneous
+*.bak
+*.tmp
+*.swp
+*.swp~
