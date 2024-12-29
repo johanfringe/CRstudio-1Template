@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const IndexPage = () => (
+const Index = () => (
   <>
     <Helmet>
       <title>Welcome to CRstudio</title>
@@ -14,4 +14,4 @@ const IndexPage = () => (
   </>
 );
 
-export default IndexPage;
+export default Index;

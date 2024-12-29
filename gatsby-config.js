@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `content/config/.env`, // Aangepaste locatie voor de .env
+  path: `content/settings/.env`, // Aangepaste locatie voor de .env
 });
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
       options: {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries: require("./src/utils/algolia-queries"),
+        queries: require("./src/config/algolia-queries"),
         chunkSize: 5000,
       },
     },
@@ -53,13 +53,6 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`,
       },
     },
     `gatsby-transformer-json`,
