@@ -102,27 +102,27 @@ const queries = [
       console.log("Transformed Data for Algolia:", transformedData); // Debug output
       return transformedData;
     },
-    indexName: process.env.ALGOLIA_INDEX_NAME_ART || "default_art_index",
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME_ART || "default_art_index",
   },
   {
     query: bioQuery,
     transformer: ({ data }) => addObjectID(data.allMarkdownRemark.nodes || []),
-    indexName: process.env.ALGOLIA_INDEX_NAME_BIO || "default_bio_index",
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME_BIO || "default_bio_index",
   },
   {
     query: colQuery,
     transformer: ({ data }) => addObjectID(data.allMarkdownRemark.nodes || []),
-    indexName: process.env.ALGOLIA_INDEX_NAME_COL || "default_col_index",
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME_COL || "default_col_index",
   },
   {
     query: exhQuery,
     transformer: ({ data }) => addObjectID(data.allMarkdownRemark.nodes || []),
-    indexName: process.env.ALGOLIA_INDEX_NAME_EXH || "default_exh_index",
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME_EXH || "default_exh_index",
   },
   {
     query: litQuery,
     transformer: ({ data }) => addObjectID(data.allMarkdownRemark.nodes || []),
-    indexName: process.env.ALGOLIA_INDEX_NAME_LIT || "default_lit_index",
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME_LIT || "default_lit_index",
   },
 ];
 
