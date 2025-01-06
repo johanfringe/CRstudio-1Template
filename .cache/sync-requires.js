@@ -4,7 +4,6 @@ const preferDefault = m => (m && m.default) || m
 
 
 exports.components = {
-  "component---cache-dev-404-page-js": preferDefault(require("/Users/johan/CRstudio/CRstudio-1Template/.cache/dev-404-page.js")),
   "component---src-pages-404-js": preferDefault(require("/Users/johan/CRstudio/CRstudio-1Template/src/pages/404.js")),
   "component---src-pages-admin-js": preferDefault(require("/Users/johan/CRstudio/CRstudio-1Template/src/pages/admin.js")),
   "component---src-pages-index-js": preferDefault(require("/Users/johan/CRstudio/CRstudio-1Template/src/pages/index.js")),
