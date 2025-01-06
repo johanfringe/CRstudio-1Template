@@ -1,17 +1,10 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 
-const Index = () => (
-  <>
-    <Helmet>
-      <title>Welcome to CRstudio</title>
-      <meta name="description" content="The most powerful Catalogue Raisonné building tool." />
-    </Helmet>
-    <main>
-      <h1>Welcome to CRstudio</h1>
-      <p>Document and share your artistic legacy.</p>
-    </main>
-  </>
+const HomePage = () => (
+  <div>
+    <h1>Welkom op de homepage</h1>
+    <p>Dit is een testpagina.</p>
+  </div>
 );
 
-export default Index;
+export default HomePage;

@@ -2,6 +2,10 @@ require("dotenv").config({
   path: `content/settings/.env`, // Aangepaste locatie voor de .env
 });
 
+// Controleer of de omgevingsvariabelen correct geladen zijn
+// console.log("ALGOLIA_APP_ID:", process.env.GATSBY_ALGOLIA_APP_ID);
+// console.log("ALGOLIA_ADMIN_KEY:", process.env.ALGOLIA_ADMIN_KEY);
+
 module.exports = {
   siteMetadata: {
     title: `Catalogue Raisonné`,
@@ -12,14 +16,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.ALGOLIA_APP_ID,
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: require("./src/config/algolia-queries"),
         chunkSize: 5000,
@@ -69,9 +73,12 @@ module.exports = {
       { name: "imacol", path: `${__dirname}/content/imacol` },
       { name: "imaexh", path: `${__dirname}/content/imaexh` },
       { name: "imalit", path: `${__dirname}/content/imalit` },
-    ].map(({ name, path }) => ({
-      resolve: `gatsby-source-filesystem`,
-      options: { name, path },
-    })),
+    ].map(({ name, path }) => {
+      // console.log(`Laden van bron: ${name}, pad: ${path}`); // Debug
+      return {
+        resolve: `gatsby-source-filesystem`,
+        options: { name, path },
+      };
+    }),
   ],
 };

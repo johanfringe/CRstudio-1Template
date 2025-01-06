@@ -1,6 +1,6 @@
 ---
 type: "art"
-title: "Artwork 2 : NuagesWolken"
+title: "Artwork 2 : Wolken"
 date: "2002"
 category: "Schilderij"
 technique: "Acryl op doek"

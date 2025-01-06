@@ -13,7 +13,7 @@ const artQuery = `
           date
           image {
             childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED, width: 150)
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, width: 300)
             }
           }
         }
@@ -97,8 +97,12 @@ const addObjectID = (nodes) =>
 const queries = [
   {
     query: artQuery,
-    transformer: ({ data }) => addObjectID(data.allMarkdownRemark.nodes || []),
-    indexName: process.env.ALGOLIA_INDEX_NAME_ART || "default_art_index", // Gebruik een fallback
+    transformer: ({ data }) => {
+      const transformedData = addObjectID(data.allMarkdownRemark.nodes || []);
+      console.log("Transformed Data for Algolia:", transformedData); // Debug output
+      return transformedData;
+    },
+    indexName: process.env.ALGOLIA_INDEX_NAME_ART || "default_art_index",
   },
   {
     query: bioQuery,
