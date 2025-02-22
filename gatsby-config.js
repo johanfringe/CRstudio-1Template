@@ -1,10 +1,15 @@
-require("dotenv").config({
-  path: `content/settings/.env`, // Aangepaste locatie voor de .env
-});
+require("dotenv").config({ path: `content/settings/.env` }); // Aangepaste locatie voor de .env
+require("dotenv").config({ path: `content/settings/.env.${process.env.NODE_ENV}` }); // Dynamisch URL afhankelijk van de omgeving
 
 // Controleer of de omgevingsvariabelen correct geladen zijn
 // console.log("ALGOLIA_APP_ID:", process.env.GATSBY_ALGOLIA_APP_ID);
 // console.log("ALGOLIA_ADMIN_KEY:", process.env.ALGOLIA_ADMIN_KEY);
+console.log(`Loaded environment variables from: content/settings/.env.${process.env.NODE_ENV}`);
+console.log(`SITE_URL: ${process.env.SITE_URL}`);
+console.log(`ALGOLIA_INDEX_NAME: ${process.env.ALGOLIA_INDEX_NAME}`);
+
+
+const languages = require('./src/locales');
 
 module.exports = {
   siteMetadata: {
@@ -39,6 +44,32 @@ module.exports = {
         mergeSecurityHeaders: true,
         mergeCachingHeaders: true,
         generateMatchPathRewrites: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+         localeJsonSourceName: `locales`, // Map voor JSON-bestanden
+         languages: languages.map(lang => lang.code), // Dynamisch genereren van de talen
+         defaultLanguage: `en`, // Standaardtaal
+         siteUrl: `https://www.yoursite.com`, // Nodig voor hreflang-tags
+         i18nextOptions: {
+            interpolation: {
+               escapeValue: false, // React voert al escaping uit
+            },
+            detection: {
+               order: ['path', 'htmlTag', 'cookie', 'navigator'],
+               caches: ['cookie'], // Optioneel: caching in cookies
+            },
+            backend: {
+               loadPath: `/src/locales/{{lng}}/{{ns}}.json`, // Pad naar vertalingsbestanden
+            },
+         },
+         pages: [ // Meertalige route voor bepaalde pagina’s, maar welke?
+            { matchPath: '/:lang?/galart', getLanguageFromPath: true }, 
+            { matchPath: '/:lang?/detart', getLanguageFromPath: true }, 
+            { matchPath: '/:lang?/contact', getLanguageFromPath: true }, 
+         ],
       },
     },
     {
