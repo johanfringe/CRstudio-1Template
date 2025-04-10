@@ -2,7 +2,7 @@ require("dotenv").config({ path: `content/settings/.env` }); // Aangepaste locat
 require("dotenv").config({ path: `content/settings/.env.${process.env.NODE_ENV}` }); // Dynamisch URL afhankelijk van de omgeving
 
 // Controleer of de omgevingsvariabelen correct geladen zijn
-// console.log("ALGOLIA_APP_ID:", process.env.GATSBY_ALGOLIA_APP_ID);
+// console.log("GATSBY_ALGOLIA_APP_ID:", process.env.GATSBY_ALGOLIA_APP_ID);
 // console.log("ALGOLIA_ADMIN_KEY:", process.env.ALGOLIA_ADMIN_KEY);
 console.log(`Loaded environment variables from: content/settings/.env.${process.env.NODE_ENV}`);
 console.log(`SITE_URL: ${process.env.SITE_URL}`);
@@ -34,18 +34,7 @@ module.exports = {
         chunkSize: 5000,
       },
     },
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {
-          "/static/*": ["Cache-Control: public, max-age=31536000, immutable"], // Cache statische bestanden
-        },
-        allPageHeaders: ["X-Frame-Options: SAMEORIGIN", "X-Content-Type-Options: nosniff"],
-        mergeSecurityHeaders: true,
-        mergeCachingHeaders: true,
-        generateMatchPathRewrites: true,
-      },
-    },
+  
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
