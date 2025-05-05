@@ -4,10 +4,11 @@ require("dotenv").config({ path: `content/settings/.env.${process.env.NODE_ENV}`
 // Controleer of de omgevingsvariabelen correct geladen zijn
 // console.log("GATSBY_ALGOLIA_APP_ID:", process.env.GATSBY_ALGOLIA_APP_ID);
 // console.log("ALGOLIA_ADMIN_KEY:", process.env.ALGOLIA_ADMIN_KEY);
-console.log(`Loaded environment variables from: content/settings/.env.${process.env.NODE_ENV}`);
-console.log(`SITE_URL: ${process.env.SITE_URL}`);
-console.log(`ALGOLIA_INDEX_NAME: ${process.env.ALGOLIA_INDEX_NAME}`);
-
+console.log("📦 Environment config geladen", {
+  env: process.env.NODE_ENV,
+  SITE_URL: process.env.SITE_URL,
+  ALGOLIA_INDEX_NAME: process.env.ALGOLIA_INDEX_NAME,
+});
 
 const languages = require('./src/locales');
 
